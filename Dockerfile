@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.12.2
 MAINTAINER pea3nut "626954412@qq.com"
 
 RUN rm /usr/share/nginx/html/*
