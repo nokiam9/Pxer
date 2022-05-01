@@ -1,8 +1,12 @@
-// build-launcher.js: 
+/* 
+build-launcher.js: 
+    - 核心任务是：重写../src/launcher.js的版本信息
+    - 目标版本信息来自于package.json的版本号，修改模版文件中的@auto-fill注释信息
+    - 输出日志为“Rewrite the version in launcher.js”
+*/
 const Path = require('path');
 const Fs = require('fs');
 const Package = require('../package.json');     
-// 读取根目录的package.json，目的是获取当前package的版本号，当前是‘2021.12.5’
 
 const launcherFile = Path.join(__dirname, '../src/launcher.js');
 const tag = '/*@auto-fill*/';

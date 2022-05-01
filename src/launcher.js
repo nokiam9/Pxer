@@ -1,5 +1,7 @@
 window['pxer'] = window['pxer'] || {};
 pxer.util = pxer.util || {};
+
+// 定义pxer.util.afterLoad方法：就是给DOMContentLoaded挂了一个时间侦听器
 pxer.util.afterLoad =function(fn){
     if(document.readyState !== 'loading'){
         setTimeout(fn);
@@ -7,6 +9,8 @@ pxer.util.afterLoad =function(fn){
         document.addEventListener('DOMContentLoaded', fn);
     }
 };
+
+// Todo：定义pxer.util.compile方法：作用不详？
 pxer.util.compile = function (str, scope = window) {
     let matchResult = null;
     while (matchResult = str.match(/{{\s*([\w_]+)\s*}}/)) {
@@ -14,6 +18,8 @@ pxer.util.compile = function (str, scope = window) {
     }
     return str;
 };
+
+// 定义pxer.util.set方法：将[key, val]储存在obj的变量中
 pxer.util.set = function (obj, key, val) {
     const keys = key.split('.');
     let pointer = obj;
@@ -26,6 +32,8 @@ pxer.util.set = function (obj, key, val) {
         }
     }
 };
+
+// 定义pxer.util.get方法：通过递归调用方式，遍历读取指定变量的内容
 // @ref https://www.jianshu.com/p/162dad820f48
 pxer.util.get = function self(data,f){
     if(f.substr) f = f.split(/\.|\\|\//);
@@ -38,6 +46,8 @@ pxer.util.get = function self(data,f){
         return "";
     }
 };
+
+// 定义pxer.util.addFile方法：构造js脚本，根据js、css、json、ico采用不同的处理方式
 pxer.util.addFile = async function (url) {
     const sector = url.includes('?') ? '&' : '?';
     const pxerVersion = /*@auto-fill*/'2021.12.5'/*@auto-fill*/;
@@ -107,9 +117,11 @@ pxer.util.addFile = async function (url) {
             // old version doesn't declare "@require vuejs"
             await pxer.util.addFile('https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js');
         case 'native':
+            // 远程加载代码文件，位于：https://pxer-app.pea3nut.org/native.js
             await pxer.util.addFile('native.js');
             break;
         case 'local':
+            // 本地加载代码文件，位于：'https://127.0.0.1:8125/src/local.js
             await pxer.util.addFile('src/local.js');
             break;
         case 'sfp':
