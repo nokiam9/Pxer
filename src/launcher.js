@@ -40,7 +40,7 @@ pxer.util.get = function self(data,f){
 };
 pxer.util.addFile = async function (url) {
     const sector = url.includes('?') ? '&' : '?';
-    const pxerVersion = /*@auto-fill*/'7.0.0'/*@auto-fill*/;
+    const pxerVersion = /*@auto-fill*/'2021.12.5'/*@auto-fill*/;
 
     if (!/^(https?:)?\/\//.test(url)) url = pxer.url + url;
     url = url + sector + `pxer-version=${pxerVersion}`;
@@ -91,6 +91,7 @@ pxer.util.addFile = async function (url) {
 };
 
 (async function(){
+    // 从local.user.js中引入时，PXER_URL='https://127.0.0.1:8125/' && PXER_MODE='local'
     window['PXER_URL'] = window['PXER_URL'] || 'https://pxer-app.pea3nut.org/';
     window['PXER_MODE'] = window['PXER_MODE'] || 'native';
     window['PXER_LANG'] = window['PXER_LANG'] || (document.documentElement.lang || window.navigator.language).split('-')[0];
