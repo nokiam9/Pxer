@@ -2,7 +2,8 @@
 
 ## UI控件
 
-位于`<body>`的顶部，id=pxerapp，class=pxer-app（对应css的style设置）
+位于`<body>`的顶部，id=pxerapp，class=pxer-app（对应css的style设置）。
+模版文件位于：`src/view/template.html`
 
 ``` html
 <div id="pxerApp" class="pxer-app">
@@ -29,5 +30,5 @@
 
 ## style参数
 
-也在`</body>`结束之后，style定义了一堆css配置，名称是pxer-app
-有5000多行，冒汗！
+也在`</body>`结束之后，style定义了一堆css配置，名称是pxer-app。有5000多行，冒汗！
+实际定义是在：`/src/view/style.scc`，通过node-sass生成真实模版文件：`/src/view/style.css`
