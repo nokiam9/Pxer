@@ -1,6 +1,7 @@
 # Pxer入口加载-launcher.js的代码分析
 
-![DOM](dom.png)
+![DOM](dom-head.png)
+![DOM](dom-body.png)
 
 ``` js
 // 设置全局变量 window.pxer，注意区别于保存环境配置的全局变量 window.PXER
