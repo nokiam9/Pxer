@@ -1,5 +1,7 @@
 # Pxer入口加载-launcher.js的代码分析
 
+![DOM](dom.png)
+
 ``` js
 // 设置全局变量 window.pxer，注意区别于保存环境配置的全局变量 window.PXER
 window['pxer'] = window['pxer'] || {};
@@ -127,7 +129,7 @@ pxer.util.addFile = async function (url) {
     }
 };
 
-// 前面是变量和方法定义，这里开始执行main
+// 前面是设置变量和定义方法，这里开始执行main，主要任务就是动态加载主应用代码
 (async function(){
     // PXER_MODE有三种模式：native、local、sfp
     window['PXER_URL'] = window['PXER_URL'] || 'https://pxer-app.pea3nut.org/';
